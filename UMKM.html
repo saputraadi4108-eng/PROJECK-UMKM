@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nusantara Craft - UMKM Unggulan</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts (Poppins) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #d97706;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b45309;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1606293926075-69a00dbfde81?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .btn-primary {
+            background-color: #d97706;
+            /* Amber-600 */
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #b45309;
+            /* Amber-700 */
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <i class="fa-solid fa-hands-holding-circle text-amber-600 text-3xl"></i>
+                    <span class="font-bold text-2xl tracking-tight text-gray-900">Nusantara<span
+                            class="text-amber-600">Craft</span></span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="text-gray-600 hover:text-amber-600 font-medium transition">Beranda</a>
+                    <a href="#about" class="text-gray-600 hover:text-amber-600 font-medium transition">Tentang Kami</a>
+                    <a href="#products" class="text-gray-600 hover:text-amber-600 font-medium transition">Produk</a>
+                    <a href="#testimonials"
+                        class="text-gray-600 hover:text-amber-600 font-medium transition">Testimoni</a>
+                    <a href="#contact" class="px-5 py-2 rounded-full btn-primary font-semibold shadow-lg">Hubungi
+                        Kami</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-amber-600 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t absolute w-full">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-amber-600 hover:bg-amber-50">Beranda</a>
+                <a href="#about"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-amber-600 hover:bg-amber-50">Tentang
+                    Kami</a>
+                <a href="#products"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-amber-600 hover:bg-amber-50">Produk</a>
+                <a href="#contact"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-amber-600 font-bold">Hubungi Kami</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg h-screen flex items-center justify-center text-center px-4">
+        <div class="max-w-4xl mx-auto text-white animate-fade-in-up">
+            <span
+                class="inline-block py-1 px-3 rounded-full bg-amber-600/80 text-sm font-semibold mb-4 backdrop-blur-sm">UMKM
+                Lokal Berkualitas Dunia</span>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Melestarikan Budaya Melalui <br> Karya Tangan
+                Terbaik</h1>
+            <p class="text-lg md:text-xl mb-8 text-gray-200 max-w-2xl mx-auto">Kami menghadirkan kerajinan tangan asli
+                Indonesia dengan sentuhan modern. Dukung produk lokal, dukung ekonomi bangsa.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#products" class="btn-primary px-8 py-3 rounded-full font-bold text-lg shadow-xl">Lihat
+                    Katalog</a>
+                <a href="#about"
+                    class="bg-white text-gray-900 px-8 py-3 rounded-full font-bold text-lg hover:bg-gray-100 transition shadow-xl">Pelajari
+                    Lebih Lanjut</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <div class="absolute -top-4 -left-4 w-24 h-24 bg-amber-100 rounded-full z-0"></div>
+                    <img src="https://images.unsplash.com/photo-1596464716127-f9a0859b0ebb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Pengrajin" class="relative z-10 rounded-2xl shadow-2xl w-full object-cover h-[400px]">
+                    <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl z-20 hidden md:block">
+                        <p class="text-3xl font-bold text-amber-600">5+</p>
+                        <p class="text-gray-600 text-sm">Tahun Pengalaman</p>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-amber-600 font-semibold text-lg mb-2">TENTANG KAMI</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Membangun Ekonomi Kreatif dari Desa
+                    </h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Nusantara Craft didirikan pada tahun 2021 sebagai wadah bagi para pengrajin lokal untuk
+                        memasarkan karya mereka. Kami percaya bahwa setiap anyaman dan ukiran memiliki cerita dan nilai
+                        seni yang tinggi.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-check-circle text-green-500 text-xl"></i>
+                            <span class="text-gray-700">100% Buatan Tangan Pengrajin Lokal</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-check-circle text-green-500 text-xl"></i>
+                            <span class="text-gray-700">Bahan Baku Ramah Lingkungan</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-check-circle text-green-500 text-xl"></i>
+                            <span class="text-gray-700">Memberdayakan Ibu Rumah Tangga</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-amber-600 font-semibold text-lg mb-2">KOLEKSI KAMI</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-900">Produk Unggulan Bulan Ini</h3>
+                <div class="w-24 h-1 bg-amber-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover group">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1595341888016-a392ef81b7de?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Tas Anyaman"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                            BEST SELLER</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold text-gray-900">Tas Anyaman Rotan</h4>
+                            <span class="text-amber-600 font-bold text-lg">Rp 150.000</span>
+                        </div>
+                        <p class="text-gray-500 text-sm mb-4">Terbuat dari rotan pilihan, kuat dan elegan untuk acara
+                            formal maupun santai.</p>
+                        <button onclick="addToCart('Tas Anyaman Rotan')"
+                            class="w-full py-2 border-2 border-amber-600 text-amber-600 rounded-lg font-semibold hover:bg-amber-600 hover:text-white transition">Tambah
+                            ke Keranjang</button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover group">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Vas Keramik"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold text-gray-900">Vas Keramik Minimalis</h4>
+                            <span class="text-amber-600 font-bold text-lg">Rp 85.000</span>
+                        </div>
+                        <p class="text-gray-500 text-sm mb-4">Desain minimalis dengan sentuhan tanah liat alami. Cocok
+                            untuk dekorasi rumah.</p>
+                        <button onclick="addToCart('Vas Keramik Minimalis')"
+                            class="w-full py-2 border-2 border-amber-600 text-amber-600 rounded-lg font-semibold hover:bg-amber-600 hover:text-white transition">Tambah
+                            ke Keranjang</button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover group">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1605333568770-529a1e7d5d79?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Kain Batik"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold text-gray-900">Kain Batik Tulis</h4>
+                            <span class="text-amber-600 font-bold text-lg">Rp 250.000</span>
+                        </div>
+                        <p class="text-gray-500 text-sm mb-4">Motif klasik Jawa yang dikerjakan secara manual oleh
+                            pengrajin senior.</p>
+                        <button onclick="addToCart('Kain Batik Tulis')"
+                            class="w-full py-2 border-2 border-amber-600 text-amber-600 rounded-lg font-semibold hover:bg-amber-600 hover:text-white transition">Tambah
+                            ke Keranjang</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button
+                    class="px-8 py-3 bg-gray-900 text-white rounded-full font-semibold hover:bg-gray-800 transition shadow-lg">Lihat
+                    Semua Produk</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-amber-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <i class="fa-solid fa-users text-4xl mb-4 opacity-80"></i>
+                    <h4 class="text-4xl font-bold mb-1">1,200+</h4>
+                    <p class="text-amber-100">Pelanggan Puas</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-box-open text-4xl mb-4 opacity-80"></i>
+                    <h4 class="text-4xl font-bold mb-1">50+</h4>
+                    <p class="text-amber-100">Varian Produk</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-hand-holding-heart text-4xl mb-4 opacity-80"></i>
+                    <h4 class="text-4xl font-bold mb-1">25</h4>
+                    <p class="text-amber-100">Pengrajin Mitra</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-truck-fast text-4xl mb-4 opacity-80"></i>
+                    <h4 class="text-4xl font-bold mb-1">100%</h4>
+                    <p class="text-amber-100">Pengiriman Aman</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-amber-600 font-semibold text-lg mb-2">TESTIMONI</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-900">Apa Kata Mereka?</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 relative">
+                    <i class="fa-solid fa-quote-left text-4xl text-amber-200 absolute top-6 left-6"></i>
+                    <p class="text-gray-600 italic mb-6 relative z-10 pt-6">"Kualitas tasnya luar biasa! Detail
+                        anyamannya sangat rapi dan pengiriman sangat cepat. Sangat merekomendasikan UMKM ini."</p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User"
+                            class="w-12 h-12 rounded-full">
+                        <div>
+                            <h5 class="font-bold text-gray-900">Siti Aminah</h5>
+                            <p class="text-xs text-gray-500">Ibu Rumah Tangga</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 relative">
+                    <i class="fa-solid fa-quote-left text-4xl text-amber-200 absolute top-6 left-6"></i>
+                    <p class="text-gray-600 italic mb-6 relative z-10 pt-6">"Saya membeli vas keramik untuk hadiah ulang
+                        tahun teman. Packagingnya aman banget dan barangnya estetik!"</p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User"
+                            class="w-12 h-12 rounded-full">
+                        <div>
+                            <h5 class="font-bold text-gray-900">Budi Santoso</h5>
+                            <p class="text-xs text-gray-500">Mahasiswa</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 relative">
+                    <i class="fa-solid fa-quote-left text-4xl text-amber-200 absolute top-6 left-6"></i>
+                    <p class="text-gray-600 italic mb-6 relative z-10 pt-6">"Batik tulisnya asli dan warnanya tidak
+                        luntur. Harganya juga sangat terjangkau untuk kualitas sebagus ini."</p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="User"
+                            class="w-12 h-12 rounded-full">
+                        <div>
+                            <h5 class="font-bold text-gray-900">Dewi Lestari</h5>
+                            <p class="text-xs text-gray-500">Guru</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-amber-500 font-semibold text-lg mb-2">HUBUNGI KAMI</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold mb-6">Mari Berkolaborasi</h3>
+                    <p class="text-gray-400 mb-8">Punya pertanyaan tentang produk atau ingin memesan dalam jumlah
+                        banyak? Jangan ragu untuk menghubungi kami.</p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-amber-500">
+                                <i class="fa-solid fa-location-dot text-xl"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold">Alamat Workshop</h5>
+                                <p class="text-gray-400 text-sm">Jl. Merdeka No. 45, Yogyakarta, Indonesia</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-amber-500">
+                                <i class="fa-solid fa-phone text-xl"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold">WhatsApp / Telepon</h5>
+                                <p class="text-gray-400 text-sm">+62 812 3456 7890</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-amber-500">
+                                <i class="fa-solid fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold">Email</h5>
+                                <p class="text-gray-400 text-sm">halo@nusantaracraft.id</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 text-gray-900">
+                    <form onsubmit="event.preventDefault(); alert('Pesan Anda telah terkirim! Terima kasih.');">
+                        <div class="mb-4">
+                            <label class="block text-sm font-bold mb-2">Nama Lengkap</label>
+                            <input type="text"
+                                class="w-full px-4 py-3 rounded-lg bg-gray-100 border-transparent focus:border-amber-500 focus:bg-white focus:ring-0 transition"
+                                placeholder="Masukkan nama Anda">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-bold mb-2">Email</label>
+                            <input type="email"
+                                class="w-full px-4 py-3 rounded-lg bg-gray-100 border-transparent focus:border-amber-500 focus:bg-white focus:ring-0 transition"
+                                placeholder="email@contoh.com">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-bold mb-2">Pesan</label>
+                            <textarea rows="4"
+                                class="w-full px-4 py-3 rounded-lg bg-gray-100 border-transparent focus:border-amber-500 focus:bg-white focus:ring-0 transition"
+                                placeholder="Tulis pesan Anda di sini..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full btn-primary py-3 rounded-lg font-bold shadow-lg">Kirim
+                            Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-gray-400 py-10 border-t border-gray-800">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-hands-holding-circle text-amber-600 text-2xl"></i>
+                <span class="font-bold text-xl text-white">Nusantara<span class="text-amber-600">Craft</span></span>
+            </div>
+            <div class="text-sm">
+                &copy; 2026 Nusantara Craft. All rights reserved. Dibuat untuk Tugas DPK.
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-amber-500 transition"><i class="fa-brands fa-instagram text-xl"></i></a>
+                <a href="#" class="hover:text-amber-500 transition"><i class="fa-brands fa-facebook text-xl"></i></a>
+                <a href="#" class="hover:text-amber-500 transition"><i class="fa-brands fa-tiktok text-xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Add to Cart Simulation
+        function addToCart(productName) {
+            alert(`Sukses! "${productName}" telah ditambahkan ke keranjang belanja Anda.`);
+        }
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.replace('h-20', 'h-16');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.replace('h-16', 'h-20');
+            }
+        });
+    </script>
+</body>
+
+</html>
